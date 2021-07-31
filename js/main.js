@@ -34,23 +34,33 @@ const getElement = (tagName, classNames) => {
 const createHeader = (param) => {
 	const header = getElement('header', ['test', 'hello', 'world']);
 	const container = getElement('div', ['container']);
+	const wrapper = getElement('div', ['header']);
+
+	if(param.header.logo) {
+		const logo = getElement('img', ['logo']);
+		logo.src = param.header.logo;
+		logo.alt = 'Логотип' + param.title;
+		wrapper.append(logo);
+	}
 
 	header.append(container);
+	container.append(wrapper);
 
 	return header;
 };
 
 const movieConstructor = (selector, options) => {
 	const app = document.querySelector(selector);
+	app.classList.add('body-app');
 
 	if(options.header) {
-		app.append(createHeader(options.header));
+		app.append(createHeader(options));
 	}
 };
 
 movieConstructor('.app', {
 	title: 'Ведьмак',
 	header: {
-		logo: ''
+		logo: 'witcher/logo.png'
 	}
 });
