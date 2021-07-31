@@ -22,13 +22,20 @@
 // 	menu.classList.toggle('header-active');
 // })
 
-const getElement = (tagName) => {
+const getElement = (tagName, classNames) => {
 	const element = document.createElement(tagName);
+
+	if(classNames) {
+		element.classList.add(...classNames);
+	}
 
 	return element;
 };
-const createHeader = () => {
-	const header = getElement('header');
+const createHeader = (param) => {
+	const header = getElement('header', ['test', 'hello', 'world']);
+	const container = getElement('div', ['container']);
+
+	header.append(container);
 
 	return header;
 };
@@ -37,10 +44,8 @@ const movieConstructor = (selector, options) => {
 	const app = document.querySelector(selector);
 
 	if(options.header) {
-		const header = createHeader();
-		app.append(header);
+		app.append(createHeader(options.header));
 	}
-	app.textContent = 'Hello World!';
 };
 
 movieConstructor('.app', {
