@@ -95,6 +95,10 @@ const movieConstructor = (selector, options) => {
 	if(options.header) {
 		app.append(createHeader(options));
 	}
+
+	if(options.main) {
+		app.append(createMain(options));
+	}
 };
 
 movieConstructor('.app', {
@@ -134,4 +138,12 @@ movieConstructor('.app', {
 			},
 		]
 	},
+	main: {
+		genre: '2019, фэнтези',
+		rating: 8,
+		description: 'Ведьмак Геральт, мутант и убийца чудовищ, на своей верной лошади по кличке Плотва путешествует по Континенту. За тугой' + 
+		'мешочек чеканных монет этот мужчина избавит вас от всякой настырной нечисти — хоть от чудищ болотных, оборотней и даже' + 
+		'заколдованных принцесс.',
+		trailer: 'https://www.youtube.com/watch?v=P0oJqfLzZzQ',
+	}
 });
