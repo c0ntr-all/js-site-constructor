@@ -112,9 +112,9 @@ const createMain = ({
 		const container = getElement('div', ['container']);
 		main.append(container);
 		const wrapper = getElement('div', ['main-content']);
-		main.append(wrapper);
+		container.append(wrapper);
 		const content = getElement('div', ['content']);
-		main.append(content);
+		wrapper.append(content);
 		
 		if(genre) {
 			const genreSpan = getElement(
