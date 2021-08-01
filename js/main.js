@@ -78,6 +78,15 @@ const createHeader = ({title, header: {logo, menu, social}}) => {
 		wrapper.append(socialWrapper);
 	}
 
+	if(menu) {
+		const menuBtn = getElement('button', ['menu-button']);
+		menuBtn.addEventListener('click', () => {
+			menuBtn.classList.toggle('menu-button-active');
+			wrapper.classList.toggle('header-active');
+		});
+		container.append(menuBtn);
+	}
+
 	header.append(container);
 	container.append(wrapper);
 
