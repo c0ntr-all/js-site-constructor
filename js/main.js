@@ -48,7 +48,7 @@ const createHeader = (param) => {
 		});
 		wrapper.append(logo);
 	}
-	
+
 	if(param.header.menu) {
 		const nav = getElement('nav', ['menu-list']);
 		const allMenuLink = param.header.menu.map(item => {
@@ -88,6 +88,10 @@ const movieConstructor = (selector, options) => {
 	const app = document.querySelector(selector);
 	app.classList.add('body-app');
 
+	app.style.backgroundImage = options.background ? 
+		`url("${options.background}")` : '';
+		document.title = options.title;
+
 	if(options.header) {
 		app.append(createHeader(options));
 	}
@@ -95,6 +99,7 @@ const movieConstructor = (selector, options) => {
 
 movieConstructor('.app', {
 	title: 'Ведьмак',
+	background: 'witcher/background.jpg',
 	header: {
 		logo: 'witcher/logo.png',
 		social: [
