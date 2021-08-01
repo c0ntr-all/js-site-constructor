@@ -149,11 +149,40 @@ const createMain = ({
 		));
 
 		if(description) {
-			content.append(getElement(
-				'p',
+			content.append(getElement('p',
 				['main-description', 'animated', 'fadeInRight'],
 				{textContent: description},
 			));
+		}
+
+		if(trailer) {
+			const youtubeLink = getElement('a',
+				['button', 'animated', 'fadeInRight', 'youtube-modal'],
+				{
+					href: trailer,
+					textContent: 'Смотреть трейлер',
+				}
+			);
+			
+			const youtubeImageLink = getElement('a',
+				['play', 'youtube-modal'],
+				{
+					href: trailer,
+					ariaLabel: 'Смотреть трейлер'
+				}
+			);
+			const iconPlay = getElement('img',
+				['play-img'],
+				{
+					src: 'img/play.svg',
+					alt: '',
+					ariaHidden: true,
+				}
+			);
+
+			content.append(youtubeLink);
+			youtubeImageLink.append(iconPlay);
+			wrapper.append(youtubeImageLink);
 		}
 
 		return main;
