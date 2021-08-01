@@ -115,6 +115,15 @@ const createMain = ({
 		main.append(wrapper);
 		const content = getElement('div', ['content']);
 		main.append(content);
+		
+		if(genre) {
+			const genreSpan = getElement(
+				'span',
+				['genre', 'animated', 'fadeinRight'],
+				{textContent: genre}
+			);
+			content.append(genreSpan);
+		}
 
 		return main;
 }
