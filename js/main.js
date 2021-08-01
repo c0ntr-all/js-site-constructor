@@ -131,6 +131,14 @@ const createMain = ({
 				textContent: `${rating}/10`
 			});
 
+			for(let i = 0; i < 10; i++) {
+				const star = getElement('img', ['star'], {
+					alt: i ? '' : `Рейтинг ${rating} из 10`,
+					src: i < rating ? 'img/star.svg' : 'img/star-o.svg'
+				});
+				ratingStars.append(star);
+			}
+
 			ratingBlock.append(ratingStars, ratingNumber);
 			content.append(ratingBlock);
 		}
