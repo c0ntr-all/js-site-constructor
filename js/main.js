@@ -100,6 +100,24 @@ const movieConstructor = (selector, options) => {
 		app.append(createMain(options));
 	}
 };
+const createMain = ({
+	title,
+	main: {
+		genre,
+		rating,
+		description,
+		trailer
+	}}) => {
+		const main = getElement('main');
+		const container = getElement('div', ['container']);
+		main.append(container);
+		const wrapper = getElement('div', ['main-content']);
+		main.append(wrapper);
+		const content = getElement('div', ['content']);
+		main.append(content);
+
+		return main;
+}
 
 movieConstructor('.app', {
 	title: 'Ведьмак',
