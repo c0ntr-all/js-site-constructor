@@ -148,6 +148,14 @@ const createMain = ({
 			{textContent: title}
 		));
 
+		if(description) {
+			content.append(getElement(
+				'p',
+				['main-description', 'animated', 'fadeInRight'],
+				{textContent: description},
+			));
+		}
+
 		return main;
 }
 
