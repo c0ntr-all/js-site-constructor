@@ -124,6 +124,16 @@ const createMain = ({
 			);
 			content.append(genreSpan);
 		}
+		if(rating) {
+			const ratingBlock = getElement('div', ['rating', 'animated', 'fadeInRight']);
+			const ratingStars = getElement('div', ['rating-stars']);
+			const ratingNumber = getElement('div', ['rating-number'], {
+				textContent: `${rating}/10`
+			});
+
+			ratingBlock.append(ratingStars, ratingNumber);
+			content.append(ratingBlock);
+		}
 
 		return main;
 }
