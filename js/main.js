@@ -142,6 +142,11 @@ const createMain = ({
 			ratingBlock.append(ratingStars, ratingNumber);
 			content.append(ratingBlock);
 		}
+		content.append(getElement(
+			'h1',
+			['main-title', 'animated', 'fadeInRight'],
+			{textContent: title}
+		));
 
 		return main;
 }
