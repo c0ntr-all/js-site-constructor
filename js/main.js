@@ -48,6 +48,19 @@ const createHeader = (param) => {
 		});
 		wrapper.append(logo);
 	}
+	
+	if(param.header.menu) {
+		const nav = getElement('nav', ['menu-list']);
+		const allMenuLink = param.header.menu.map(item => {
+			const link = getElement('a', ['menu-link'], {
+				href: item.link,
+				textContent: item.title,
+			});
+			return link;
+		});
+		nav.append(...allMenuLink);
+		wrapper.append(nav);
+	}
 
 	if(param.header.social) {
 		const socialWrapper = getElement('div', ['social']);
@@ -100,6 +113,20 @@ movieConstructor('.app', {
 				link: 'https://facebook.com',
 				image: 'witcher/social/facebook.svg'
 			}
+		],
+		menu: [
+			{
+				title: 'Описание',
+				link: '#',
+			},
+			{
+				title: 'Трейлер',
+				link: '#',
+			},
+			{
+				title: 'Отзывы',
+				link: '#',
+			},
 		]
 	},
 });
